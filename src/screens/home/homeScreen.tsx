@@ -3,6 +3,7 @@ import HeroImage from "../../assets/svg/HeroImage.svg";
 import BookingForm from "../../components/bookingForm/bookingForm";
 import "./homeScreenStyles.css";
 import { motion } from "framer-motion";
+import DoctorsCarousel from "../../components/doctorsCarousel/doctorsCarousel";
 
 const heroImageVarient = {
   hidden: {
@@ -55,6 +56,9 @@ const Home = () => {
         <section>
           <BookingForm />
         </section>
+      </div>
+      <div style={{ margin: "0 2%" }}>
+        <DoctorsCarousel />
       </div>
     </div>
   );
