@@ -1,5 +1,5 @@
 .form-box {
-  width: 400px; 
+  width: 400px;
   padding: 20px;
   border: 2px solid #00acc1;
   display: flex;
@@ -28,4 +28,24 @@ button {
 
 button:hover {
   background-color: #00454d;
+}
+.heading-container {
+  align-self: center;
+  line-height: 10px;
+}
+.heading-container p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.heading-container p,
+h4 {
+  color: #fff;
+}
+.line-through {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+.free-color{
+    color: #00acc1;
 }
