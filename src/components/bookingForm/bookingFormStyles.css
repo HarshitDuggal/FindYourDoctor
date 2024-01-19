@@ -1,0 +1,31 @@
+.form-box {
+  width: 400px; 
+  padding: 20px;
+  border: 2px solid #00acc1;
+  display: flex;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #00acc1;
+  color: #fff;
+  background-color: #000;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00acc1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00454d;
+}
