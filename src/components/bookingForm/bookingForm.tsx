@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
@@ -15,15 +15,6 @@ const BookingForm = () => {
     chiefComplaints: "",
     previousExperience: "",
   });
-
-  const loopVariants = {
-    start: {
-      scale: 1,
-    },
-    end: {
-      scale: 1.2,
-    },
-  };
 
   const [step, setStep] = useState(1);
 

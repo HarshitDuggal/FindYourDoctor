@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import HeroImage from "../../assets/svg/HeroImage.svg";
 import BookingForm from "../../components/bookingForm/bookingForm";
