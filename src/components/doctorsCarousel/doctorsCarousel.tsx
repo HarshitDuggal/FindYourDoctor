@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import "./doctorCarouselStyles.css";
@@ -7,22 +7,28 @@ interface Doctor {
   id: number;
   name: string;
   city: string;
+  image:string;
   expertise: string;
   createdAt: string;
 }
 
 const DctorsCarousel = () => {
   const [doctorData, setDoctorData] = useState<Doctor[]>([]);
-  // const [width, setWidth] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0);
 
-  // const carousel = useRef<any>();
+  const carousel = useRef<any>();
 
   useEffect(() => {
     getDoctorData();
-    // console.log(carousel.current.scrollWidth,carousel.current.offsetWidth);
-    // setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-    // console.log("This is Width:",width);
+   
   }, []);
+  useEffect(() => {
+    console.log(carousel.current.scrollWidth ,carousel.current.offsetWidth);
+    
+   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    console.log("This is Width:",width);
+  }, [doctorData,carousel])
+  
 
   const getDoctorData = async () => {
     try {
@@ -45,10 +51,10 @@ const DctorsCarousel = () => {
        <h3 className = 'heading' >Meet Our Experts </h3>
        <h5 className = 'sub-heading'>Experience the Benefits of Advanced Technology and Expert Care</h5> 
     </motion.div>
-      <motion.div className="doctors-carousel-container">
+      <motion.div ref = {carousel} className="doctors-carousel-container">
         <motion.div
           drag="x"
-          dragConstraints={{ right: 0, left: -3800 }}
+          dragConstraints={{ right: 0, left: -width }}
           className="inner-carousel-container"
         >
           {doctorData.map((doctor) => (
@@ -56,9 +62,9 @@ const DctorsCarousel = () => {
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1673953510158-174d4060db8b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVkaWNhbCUyMGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D"
+                    src={doctor.image}
                     alt="Avatar"
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ width: "100%", height: "100%" ,borderRadius:7,objectFit:'cover'}}
                   />
                 </div>
                 <div className="flip-card-back">

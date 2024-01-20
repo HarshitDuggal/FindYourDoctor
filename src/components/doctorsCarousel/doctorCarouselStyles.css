@@ -7,9 +7,11 @@
 }
 .flip-card {
   background-color: transparent;
-  min-width: 15rem;
+  min-width: 20rem;
   margin: 10px;
-  height: 15rem;
+  height: 20rem;
+  border: 3px solid #00acc1;
+  border-radius: 10px;
   perspective: 1000px;
 }
 
@@ -20,6 +22,7 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border-radius: 10px;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -33,6 +36,7 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  border-radius: 10px;
 }
 
 .flip-card-front {
@@ -56,4 +60,5 @@
   border: 2px solid #00acc1;
   width: 40%;
   margin: 1% auto;
+  margin-top: 50px;
 }

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import "react-toastify/dist/ReactToastify.css";
 import "./bookingFormStyles.css";
 
@@ -14,6 +15,15 @@ const BookingForm = () => {
     chiefComplaints: "",
     previousExperience: "",
   });
+
+  const loopVariants = {
+    start: {
+      scale: 1,
+    },
+    end: {
+      scale: 1.2,
+    },
+  };
 
   const [step, setStep] = useState(1);
 
@@ -45,7 +55,7 @@ const BookingForm = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "coloured",
+        theme: "dark",
       });
     }
   };
@@ -62,10 +72,16 @@ const BookingForm = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 4 }}
       >
-        <section className="heading-container">
-          <h4>Book an Appointment for <span className="line-through">Rs 1000</span>  <span className="free-color">FREE</span> </h4>
-          <p>60+ Expert Physiotherapists for 200+ Conditions</p>
-        </section>
+        {step !== 5 && (
+          <section className="heading-container">
+            <h4>
+              Book an Appointment for{" "}
+              <span className="line-through">Rs 1000</span>{" "}
+              <span className="free-color">FREE</span>{" "}
+            </h4>
+            <p>60+ Expert Physiotherapists for 200+ Conditions</p>
+          </section>
+        )}
         <ToastContainer />
         {step === 1 && (
           <>
@@ -150,9 +166,23 @@ const BookingForm = () => {
           </>
         )}
         {step === 5 && (
-          <div style={{ color: "white" }}>
-            Recommended Doctors coming your way
-          </div>
+          <motion.div
+            animate={{ scale: 1.1 }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "mirror",
+            }}
+            style={{
+              color: "white",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <IoCheckmarkDoneCircle size={80} />
+            <div>Recommended Doctors coming your way</div>
+          </motion.div>
         )}
       </motion.div>
     </>
