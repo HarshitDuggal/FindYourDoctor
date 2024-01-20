@@ -34,7 +34,11 @@ const BookingForm = () => {
     ) {
       setStep((prevStep) => prevStep + 1);
     } else if (step === 3 && formData.chiefComplaints) {
-      setStep((prevStep) => prevStep + 1);
+      if (formData.age > "40") {
+        setStep((prevStep) => prevStep + 1);
+      } else {
+        setStep((prevStep) => prevStep + 2);
+      }
     } else if (step === 4 && formData.previousExperience) {
       setStep((prevStep) => prevStep + 1);
     } else {
