@@ -37,7 +37,7 @@ const Testimonials = () => {
         </div>
         <div className="section-center">
           {people.map((person, personIndex) => {
-            const { id, image, name, title, quote } = person;
+            const { id, image, name, problem, quote } = person;
   
             let position = 'nextSlide';
             if (personIndex === index) {
@@ -54,7 +54,7 @@ const Testimonials = () => {
               <article className={position} key={id}>
                 <img src={image} alt={name} className="person-img" />
                 <h4>{name}</h4>
-                <p className="title">{title}</p>
+                <p className="title">{problem}</p>
                 <p className="text">{quote}</p>
                 <FaQuoteRight className="icon" />
               </article>

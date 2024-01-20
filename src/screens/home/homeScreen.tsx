@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import HeroImage from "../../assets/svg/HeroImage.svg";
 import BookingForm from "../../components/bookingForm/bookingForm";
@@ -33,6 +33,11 @@ const logoImageVarient = {
 };
 
 const Home = () => {
+  const [formDataCity, setFormDataCity] = useState<string | "">("");
+
+  const handleCityChange = (city: string) => {
+    setFormDataCity(city);
+  };
   return (
     <div className="home-container">
       <div>
@@ -56,12 +61,12 @@ const Home = () => {
           alt="Logo"
         />
         <section>
-          <BookingForm />
+          <BookingForm onCityChange={handleCityChange} />
         </section>
       </div>
       <div style={{ margin: "0 2%" }}>
-        <DoctorsCarousel />
-        <Testimonials/>
+        <DoctorsCarousel formDataCity={formDataCity} />
+        <Testimonials />
       </div>
     </div>
   );

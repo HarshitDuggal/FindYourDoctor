@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Home from './screens/home/homeScreen';
 function App() {
